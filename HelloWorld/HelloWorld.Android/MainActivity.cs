@@ -20,8 +20,19 @@ namespace HelloWorld.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-			LoadApplication (new HelloWorld.App ());
+
+            //指定したファイルのパスを習得
+            var dbPath = GetLocalFilePath("Book2.db3");
+
+            LoadApplication(new App(dbPath));
 		}
+        public static string GetLocalFilePath(string filename)
+        {
+            //指定されたファイルのパスを習得　なければ作成してそのパスを返却
+            var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+
+            return System.IO.Path.Combine(path, filename);
+        }
 	}
 }
 

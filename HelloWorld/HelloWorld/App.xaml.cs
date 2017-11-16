@@ -9,8 +9,15 @@ namespace HelloWorld
 {
 	public partial class App : Application
 	{
-		public App ()
+        //データベースのパスを格納
+        public static string dbPath;
+
+        //コンストラクタの引数にstring型の引数を追加
+
+        public App (string dbPath)
 		{
+            App.dbPath = dbPath;
+
 			InitializeComponent();
 
 			MainPage = new HelloWorld.MainPage();
